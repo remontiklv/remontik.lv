@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>REMONTIK.LV | Ремонт квартир и домов в Латвии</title>
+<meta name="description" content="Ремонт квартир и домов под ключ в Латвии. Электрика, Smart Home, дизайн интерьера, сантехника, теплые полы.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+html{scroll-behavior:smooth}
+body{background:#050505;color:#fff;overflow-x:hidden}
+.container{width:92%;max-width:1400px;margin:auto}
+
+header{
+position:fixed;
+width:100%;
+top:0;
+z-index:999;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.08)
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 0
+}
+
+.logo{
+font-size:34px;
+font-weight:900;
+color:#ff6b00
+}
+
+.menu{
+display:flex;
+gap:28px
+}
+
+.menu a{
+text-decoration:none;
+color:#fff;
+font-weight:500;
+transition:.3s
+}
+
+.menu a:hover{
+color:#ff6b00
+}
+
+.burger{
+display:none;
+font-size:34px;
+cursor:pointer
+}
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.88)),
+url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2070&auto=format&fit=crop') center/cover;
+}
+
+.hero h1{
+font-size:78px;
+font-weight:900;
+line-height:1.05;
+max-width:1100px
+}
+
+.orange{color:#ff6b00}
+
+.hero p{
+font-size:28px;
+color:#ccc;
+margin-top:30px
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:45px
+}
+
+.btn{
+padding:18px 40px;
+border:none;
+border-radius:18px;
+font-size:20px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+text-decoration:none;
+display:inline-flex;
+align-items:center;
+justify-content:center
+}
+
+.btn-orange{
+background:#ff6b00;
+color:#fff
+}
+
+.btn-orange:hover{
+background:#ff8124;
+transform:translateY(-4px)
+}
+
+.btn-dark{
+background:transparent;
+border:1px solid rgba(255,255,255,.25);
+color:#fff
+}
+
+.btn-dark:hover{
+border-color:#ff6b00;
+color:#ff6b00
+}
+
+section{padding:120px 0}
+
+.section-title{
+text-align:center;
+font-size:62px;
+font-weight:900;
+margin-bottom:70px
+}
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px
+}
+
+.card{
+background:#111;
+padding:40px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,.08);
+transition:.3s
+}
+
+.card:hover{
+border-color:#ff6b00;
+transform:translateY(-6px)
+}
+
+.card h3{
+font-size:34px;
+color:#ff6b00;
+margin-bottom:20px
+}
+
+.card p{
+color:#aaa;
+font-size:18px;
+line-height:1.7
+}
+
+.calculator{
+background:#111;
+border-radius:32px;
+padding:60px;
+border:1px solid rgba(255,255,255,.08);
+max-width:1100px;
+margin:auto
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px
+}
+
+input,select{
+width:100%;
+padding:18px;
+border:1px solid rgba(255,255,255,.08);
+border-radius:16px;
+background:#141414;
+color:#fff;
+font-size:18px;
+outline:none;
+transition:.3s
+}
+
+input:focus,
+select:focus{
+border-color:#ff6b00;
+box-shadow:0 0 0 4px rgba(255,107,0,.15)
+}
+
+select option{
+background:#111;
+color:#fff
+}
+
+.result{
+text-align:center;
+margin-top:45px
+}
+
+.result .price{
+font-size:72px;
+font-weight:900;
+color:#ff6b00;
+margin-top:20px
+}
+
+.prices-table{
+width:100%;
+border-collapse:collapse;
+background:#111;
+border-radius:25px;
+overflow:hidden
+}
+
+.prices-table th,.prices-table td{
+padding:20px;
+border-bottom:1px solid rgba(255,255,255,.08);
+text-align:left
+}
+
+.prices-table th{
+background:#191919;
+color:#ff6b00;
+font-size:20px
+}
+
+.portfolio-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px
+}
+
+.portfolio-item{
+height:340px;
+border-radius:28px;
+overflow:hidden
+}
+
+.portfolio-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.6s
+}
+
+.portfolio-item:hover img{
+transform:scale(1.1)
+}
+
+.contact-box{
+text-align:center;
+background:#111;
+padding:70px;
+border-radius:32px;
+border:1px solid rgba(255,255,255,.08)
+}
+
+.phone{
+font-size:64px;
+font-weight:900;
+color:#ff6b00;
+margin-top:25px
+}
+
+footer{
+padding:40px 0;
+text-align:center;
+color:#888;
+border-top:1px solid rgba(255,255,255,.08)
+}
+
+@media(max-width:768px){
+body{
+overflow-x:hidden;
+}
+
+.container{
+width:94%;
+}
+
+header{
+padding:0 10px;
+}
+
+nav{
+padding:18px 0;
+}
+
+.logo{
+font-size:26px;
+}
+
+.hero{
+height:auto;
+padding:140px 0 90px;
+}
+
+.hero h1{
+font-size:42px;
+line-height:1.12;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.5;
+margin-top:22px;
+}
+
+.buttons{
+flex-direction:column;
+align-items:center;
+gap:14px;
+margin-top:35px;
+}
+
+.btn{
+width:100%;
+max-width:340px;
+font-size:18px;
+padding:16px 24px;
+}
+
+.section-title{
+font-size:38px;
+margin-bottom:40px;
+line-height:1.15;
+}
+
+.phone{
+font-size:32px;
+word-break:break-word;
+}
+
+section{
+padding:80px 0;
+}
+
+.services-grid,
+.portfolio-grid,
+.form-grid{
+grid-template-columns:1fr;
+gap:20px;
+}
+
+.card{
+padding:28px;
+border-radius:22px;
+}
+
+.card h3{
+font-size:28px;
+}
+
+.card p{
+font-size:16px;
+}
+
+.calculator{
+padding:28px 20px;
+border-radius:24px;
+}
+
+input,
+select{
+font-size:16px;
+padding:16px;
+}
+
+.result .price{
+font-size:44px;
+}
+
+.prices-table{
+display:block;
+overflow-x:auto;
+white-space:nowrap;
+border-radius:18px;
+}
+
+.prices-table th,
+.prices-table td{
+padding:16px;
+font-size:15px;
+}
+
+.portfolio-item{
+height:240px;
+}
+
+.contact-box{
+padding:40px 20px;
+border-radius:24px;
+}
+
+.menu{
+display:none;
+position:absolute;
+top:78px;
+left:0;
+width:100%;
+background:#111;
+flex-direction:column;
+padding:24px;
+gap:20px;
+border-bottom:1px solid rgba(255,255,255,.08)
+}
+
+.menu a{
+font-size:18px;
+}
+
+.menu.active{
+display:flex;
+}
+
+.burger{
+display:block;
+font-size:30px;
+}
+}
+
+@media(max-width:480px){
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.section-title{
+font-size:32px;
+}
+
+.phone{
+font-size:28px;
+}
+
+.result .price{
+font-size:36px;
+}
+
+.btn{
+font-size:16px;
+}
+}
+.hero p{font-size:20px}
+.section-title{font-size:42px}
+.phone{font-size:38px}
+
+.menu{
+display:none;
+position:absolute;
+top:90px;
+left:0;
+width:100%;
+background:#111;
+flex-direction:column;
+padding:30px
+}
+
+.menu.active{display:flex}
+.burger{display:block}
+}
+
+.lang-switcher{
+display:flex;
+gap:10px;
+}
+
+.lang-btn{
+background:#111;
+border:1px solid rgba(255,255,255,.12);
+color:#fff;
+padding:12px 18px;
+font-size:16px;
+border-radius:12px;
+cursor:pointer;
+font-weight:700;
+transition:.3s;
+}
+
+.lang-btn.active{
+background:#ff6b00;
+border-color:#ff6b00;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<div class="container">
+<nav>
+
+<div style="display:flex;align-items:center;gap:20px">
+<div class="logo">REMONTIK.LV</div>
+
+<div class="lang-switcher">
+<button onclick="setLanguage('ru')" class="lang-btn active" id="ruBtn">RU</button>
+<button onclick="setLanguage('lv')" class="lang-btn" id="lvBtn">LV</button>
+</div>
+</div>
+
+
+<div class="burger" onclick="toggleMenu()">☰</div>
+
+<div class="menu" id="menu">
+<a href="#services" data-ru="Услуги" data-lv="Pakalpojumi" data-ru="Услуги" data-lv="Pakalpojumi">Услуги</a>
+<a href="#estimate" data-ru="Смета" data-lv="Tāme" data-ru="Смета" data-lv="Tāme">Смета</a>
+<a href="#prices" data-ru="Цены" data-lv="Cenas" data-ru="Цены" data-lv="Cenas">Цены</a>
+<a href="#portfolio" data-ru="Портфолио" data-lv="Portfolio" data-ru="Портфолио" data-lv="Portfolio">Портфолио</a>
+<a href="#contacts" data-ru="Контакты" data-lv="Kontakti" data-ru="Контакты" data-lv="Kontakti">Контакты</a>
+</div>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<h1 data-ru="Ремонт квартир и домов <span class='orange'>в Латвии под ключ</span>"
+data-lv="Dzīvokļu un māju remonts <span class='orange'>Latvijā pilnā ciklā</span>">
+Ремонт квартир и домов
+<span class="orange">в Латвии под ключ</span>
+</h1>
+
+<p data-ru="Электрика • Smart Home • Сантехника • Мебель • Кухни • Двери • Окна"
+data-lv="Elektrība • Smart Home • Santehnika • Mēbeles • Virtuves • Durvis • Logi">
+Электрика • Smart Home • Сантехника • Мебель • Кухни • Двери • Окна
+</p>
+
+<div class="buttons">
+<a href="#estimate" class="btn btn-orange" data-lv="Aprēķināt tāmi" data-ru="Рассчитать смету" data-lv="Aprēķināt tāmi">Рассчитать смету</a>
+<a href="#contacts" class="btn btn-dark" data-lv="Izsaukt speciālistu" data-ru="Вызвать специалиста" data-lv="Izsaukt speciālistu">Вызвать специалиста</a>
+</div>
+
+<div class="phone">
+<a href="tel:+37122140014" style="color:#ff6b00;text-decoration:none">
++371 22140014
+</a>
+</div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+<h2 class="section-title" data-lv="Mūsu pakalpojumi" data-ru="Наши услуги" data-lv="Mūsu pakalpojumi">Наши услуги</h2>
+
+<div class="services-grid">
+<div class="card">
+<h3 data-lv="Elektromontāža" data-ru="Электромонтаж" data-lv="Elektromontāža">Электромонтаж</h3>
+<p data-lv="Vadu nomaiņa, sadales skapji, automāti, LED apgaismojums, KNX un Smart Home." data-ru="Замена проводки, щиты, автоматы, LED освещение, KNX и Smart Home." data-lv="Vadu nomaiņa, sadales skapji, automāti, LED apgaismojums, KNX un Smart Home.">Замена проводки, щиты, автоматы, LED освещение, KNX и Smart Home.</p>
+</div>
+
+<div class="card">
+<h3 data-lv="Dzīvokļu remonts" data-ru="Ремонт квартир" data-lv="Dzīvokļu remonts">Ремонт квартир</h3>
+<p data-lv="Kapitālais un dizaina remonts dzīvokļiem un jaunbūvēm." data-ru="Капитальный и дизайнерский ремонт квартир и новостроек." data-lv="Dzīvokļu un jaunbūvju kapitālais un dizaina remonts.">Капитальный и дизайнерский ремонт квартир и новостроек.</p>
+</div>
+
+<div class="card">
+<h3 data-lv="Santehnika" data-lv="Santehnika" data-ru="Сантехника" data-lv="Santehnika">Сантехника</h3>
+<p data-lv="Ūdensvadi, apkure, boileri un dušas sistēmas." data-ru="Разводка воды, отопление, бойлеры и душевые системы." data-lv="Ūdensapgāde, apkure, boileri un dušas sistēmas.">Разводка воды, отопление, бойлеры и душевые системы.</p>
+</div>
+
+<div class="card">
+<h3 data-lv="Privātmājas" data-ru="Частные дома" data-lv="Privātmājas">Частные дома</h3>
+<p data-lv="Māju remonts un būvniecība pilnā ciklā visā Latvijā." data-ru="Ремонт и строительство домов под ключ по всей Латвии." data-lv="Māju remonts un būvniecība pilnā ciklā visā Latvijā.">Ремонт и строительство домов под ключ по всей Латвии.</p>
+</div>
+
+<div class="card">
+<h3 data-lv="Siltās grīdas" data-ru="Теплые полы" data-lv="Siltās grīdas">Теплые полы</h3>
+<p data-lv="DEVI silto grīdu un viedās vadības uzstādīšana." data-ru="Монтаж DEVI теплых полов и интеллектуального управления." data-lv="DEVI silto grīdu un viedās vadības uzstādīšana.">Монтаж DEVI теплых полов и интеллектуального управления.</p>
+</div>
+
+<div class="card">
+<h3 data-lv="Premium dizains" data-ru="Premium Design" data-lv="Premium dizains">Premium Design</h3>
+<p data-lv="Moderns interjera dizains un 3D vizualizācija." data-ru="Современный дизайн интерьера и 3D визуализация помещений." data-lv="Moderns interjera dizains un 3D vizualizācija.">Современный дизайн интерьера и 3D визуализация помещений.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="estimate">
+<div class="container">
+<h2 class="section-title" data-lv="Tiešsaistes tāme" data-ru="Онлайн смета" data-lv="Tiešsaistes tāme">Онлайн смета</h2>
+
+<div class="calculator">
+<div class="form-grid">
+<div>
+<input type="number" id="area" placeholder="Площадь объекта м²" data-ru="Площадь объекта м²" data-lv="Objekta platība m²">
+</div>
+
+<div>
+<select id="repairType">
+<option value="180" data-lv="Kosmētiskais remonts" data-ru="Косметический ремонт" data-lv="Kosmētiskais remonts" data-ru="Косметический ремонт" data-lv="Kosmētiskais remonts">Косметический ремонт</option>
+<option value="320" data-lv="Kapitālais remonts" data-ru="Капитальный ремонт" data-lv="Kapitālais remonts" data-ru="Капитальный ремонт" data-lv="Kapitālais remonts">Капитальный ремонт</option>
+<option value="520" data-lv="Premium klases remonts" data-ru="Premium ремонт" data-lv="Premium klases remonts" data-ru="Premium ремонт" data-lv="Premium klases remonts">Premium ремонт</option>
+</select>
+</div>
+
+<div>
+<select id="district">
+<option value="50" data-lv="Rīgas centrs" data-ru="Рига Центр" data-lv="Rīgas centrs">Рига Центр</option>
+<option value="60" data-lv="Imanta" data-ru="Иманта" data-lv="Imanta">Иманта</option>
+<option value="70" data-lv="Mārupe" data-ru="Марупе" data-lv="Mārupe">Марупе</option>
+<option value="80" data-lv="Jūrmala" data-ru="Юрмала" data-lv="Jūrmala">Юрмала</option>
+<option value="120" data-lv="Jelgava" data-ru="Елгава" data-lv="Jelgava">Елгава</option>
+<option value="150" data-lv="Sigulda" data-ru="Сигулда" data-lv="Sigulda">Сигулда</option>
+</select>
+</div>
+</div>
+
+<div class="buttons">
+<button class="btn btn-orange" onclick="calculateEstimate()" data-ru="Рассчитать стоимость" data-lv="Aprēķināt izmaksas">
+Рассчитать стоимость
+</button>
+
+<a href="#contacts" class="btn btn-dark" data-ru="Вызвать специалиста" data-lv="Izsaukt speciālistu">
+Вызвать специалиста
+</a>
+</div>
+
+<div class="result">
+<div data-lv="Aptuvenās izmaksas" data-ru="Предварительная стоимость" data-lv="Aptuvenās izmaksas">Предварительная стоимость</div>
+<div class="price" id="result">0 EUR</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="prices">
+<div class="container">
+<h2 class="section-title" data-lv="Aktuālās cenas" data-ru="Актуальные цены" data-lv="Aktuālās cenas">Актуальные цены</h2>
+
+<table class="prices-table">
+<tr><th data-lv="Darbs" data-ru="Работа" data-lv="Darbs">Работа</th><th data-lv="Cena" data-ru="Цена" data-lv="Cena">Цена</th></tr>
+<tr><td data-lv="Elektropunkts" data-ru="Электроточка">Электроточка</td><td data-ru="от 18 EUR" data-lv="no 18 EUR">от 18 EUR</td></tr>
+<tr><td data-lv="Sadales skapja montāža" data-ru="Монтаж щита">Монтаж щита</td><td data-ru="от 120 EUR" data-lv="no 120 EUR">от 120 EUR</td></tr>
+<tr><td data-lv="Kabeļa montāža" data-ru="Прокладка кабеля">Прокладка кабеля</td><td data-ru="от 1.5 EUR/м" data-lv="no 1.5 EUR/m">от 1.5 EUR/м</td></tr>
+<tr><td data-ru="Теплый пол" data-lv="Siltā grīda">Теплый пол</td><td data-ru="от 15 EUR/м²" data-lv="no 15 EUR/m²">от 15 EUR/м²</td></tr>
+<tr><td data-lv="Flīzes" data-ru="Плитка">Плитка</td><td data-ru="от 15 EUR/м²" data-lv="no 15 EUR/m²">от 15 EUR/м²</td></tr>
+<tr><td data-lv="Lamināts" data-ru="Ламинат">Ламинат</td><td data-ru="от 6 EUR/м²" data-lv="no 6 EUR/m²">от 6 EUR/м²</td></tr>
+<tr><td data-lv="Krāsošana" data-ru="Покраска">Покраска</td><td data-ru="от 4 EUR/м²" data-lv="no 4 EUR/m²">от 4 EUR/м²</td></tr>
+<tr><td data-lv="Santehnika" data-ru="Сантехника">Сантехника</td><td data-ru="от 40 EUR/точка" data-lv="no 40 EUR/punkts">от 40 EUR/точка</td></tr>
+</table>
+</div>
+</section>
+
+<section id="portfolio">
+<div class="container">
+<h2 class="section-title" data-lv="Mūsu objekti" data-ru="Наши объекты" data-lv="Mūsu objekti">Наши объекты</h2>
+
+<div class="portfolio-grid">
+<div class="portfolio-item">
+<img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2070&auto=format&fit=crop">
+</div>
+
+<div class="portfolio-item">
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1974&auto=format&fit=crop">
+</div>
+
+<div class="portfolio-item">
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2070&auto=format&fit=crop">
+</div>
+</div>
+</div>
+</section>
+
+<section id="contacts">
+<div class="container">
+<div class="contact-box">
+<h2 class="section-title" data-lv="Speciālista izsaukums" data-ru="Вызов специалиста" data-lv="Speciālista izsaukums">Вызов специалиста</h2>
+
+<p style="font-size:24px;color:#bbb" data-ru="Выезд по Риге и всей Латвии от 50 EUR" data-lv="Izbraukums pa Rīgu un visu Latviju no 50 EUR">
+Выезд по Риге и всей Латвии от 50 EUR
+</p>
+
+<div class="phone">
+<a href="tel:+37122140014" style="color:#ff6b00;text-decoration:none">
++371 22140014
+</a>
+</div>
+
+<div class="buttons">
+<a href="https://wa.me/37122140014" target="_blank" class="btn btn-orange">
+WhatsApp
+</a>
+
+<a href="https://t.me/SlavonNovals" target="_blank" class="btn btn-dark">
+Telegram
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+© 2026 REMONTIK.LV — Apartment & House Renovation in Latvia
+</div>
+</footer>
+
+
+<script>
+function setLanguage(lang){
+
+localStorage.setItem('siteLanguage', lang);
+
+document.querySelectorAll('[data-ru]').forEach(el => {
+
+const text = el.getAttribute('data-' + lang);
+
+if(!text) return;
+
+if(el.tagName === 'INPUT'){
+el.placeholder = text;
+}else{
+el.innerHTML = text;
+}
+
+});
+
+document.getElementById('ruBtn').classList.remove('active');
+document.getElementById('lvBtn').classList.remove('active');
+
+document.getElementById(lang + 'Btn').classList.add('active');
+
+document.documentElement.lang = lang;
+}
+
+function calculateEstimate(){
+
+const area = parseFloat(document.getElementById('area').value) || 0;
+const repairType = parseFloat(document.getElementById('repairType').value) || 0;
+const district = parseFloat(document.getElementById('district').value) || 0;
+
+if(area <= 0){
+
+if(document.documentElement.lang === 'lv'){
+alert('Ievadiet objekta platību');
+}else{
+alert('Введите площадь объекта');
+}
+
+return;
+}
+
+let total = (area * repairType) + district;
+
+document.getElementById('result').innerHTML =
+total.toLocaleString(document.documentElement.lang === 'lv' ? 'lv-LV' : 'ru-RU') + ' EUR';
+}
+
+const savedLanguage = localStorage.getItem('siteLanguage') || 'ru';
+setLanguage(savedLanguage);
+</script>
+
+</body>
+</html>
